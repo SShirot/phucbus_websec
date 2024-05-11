@@ -8,15 +8,11 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
-    private  static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String user_email = request.getParameter("uemail");
@@ -24,35 +20,33 @@ public class LoginServlet extends HttpServlet {
         String submittedCsrfToken = request.getParameter("csrfToken");
         HttpSession session = request.getSession();
         String sessionCsrfToken = (String) session.getAttribute("csrfToken");
-        
-        RequestDispatcher dispatcher = null;
 
         // Validate CSRF token
         if (sessionCsrfToken == null || !sessionCsrfToken.equals(submittedCsrfToken)) {
             response.sendError(HttpServletResponse.SC_FORBIDDEN, "CSRF token invalid");
             return;
-        }    
+        }
 
-        try{
+        try {
             LoginAuth login = new LoginAuth();
-            loginauth LoginAttemp = login.Query(user_email, user_pass);
-            if (LoginAttemp.CheckAuth == 1) {
-                if (LoginAttemp.CheckAdmin == 1) {
-                    session.setAttribute("admin", "admin");
-                } else {
-                    session.setAttribute("admin", "user");
-                }
-                session.setAttribute("name", LoginAttemp.UserName);
-                dispatcher = request.getRequestDispatcher("index.jsp");
+            loginauth LoginAttempt = login.Query(user_email, user_pass);
+            if (LoginAttempt.CheckAuth == 1) {
+                // Authentication successful, set user attributes
+                session.setAttribute("userType", LoginAttempt.CheckAdmin == 1 ? "admin" : "user");
+                session.setAttribute("name", LoginAttempt.UserName);
 
+                String cookieValue = "JSESSIONID=" + session.getId() + "; Path=/; HttpOnly; Secure; SameSite=Strict";
+
+                if (!request.isSecure()) {
+                    cookieValue = cookieValue.replace("Secure; ", "");
+                }
+                response.setHeader("Set-Cookie", cookieValue);
+
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             } else {
                 request.setAttribute("status", "failed");
-                dispatcher = request.getRequestDispatcher("login.jsp");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
-            dispatcher.forward(request,response);
-
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

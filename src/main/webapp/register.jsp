@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta
+    <!-- <meta
     http-equiv="Content-Security-Policy"
-    content="default-src 'self'; child-src 'none';" />
+    content="default-src 'self'; child-src 'none';" /> -->
     <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
     <!--===============================================================================================-->
