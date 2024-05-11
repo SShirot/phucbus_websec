@@ -17,6 +17,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'; child-src 'none';" />
+
     <title>PhucBus</title>
     <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
     <!-- Google font -->

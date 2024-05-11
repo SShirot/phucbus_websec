@@ -4,6 +4,10 @@
 		<title>PhucBus</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<meta
+		http-equiv="Content-Security-Policy"
+		content="default-src 'self'; child-src 'none';" />
 	<!--===============================================================================================-->
 		<link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
 	<!--===============================================================================================-->
@@ -33,6 +37,8 @@
 			<div class="container-login100" style="background-image: url('assets/images/bg-01.jpg');">
 				<div class="wrap-login100">
 					<form class="login100-form validate-form" method="POST" action="login" id="login-form">
+						<input type="hidden" name="csrfToken" value="<%= request.getAttribute("csrfToken") %>">
+
 						<img class="login100-form-logo" src="assets/images/logo.png" >
 
 						<div class="wrap-input100 validate-input" data-validate = "Enter email">
@@ -74,7 +80,7 @@
 		<div id="dropDownSelect1"></div>
 
 	<!--===============================================================================================-->
-		<script src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+		<script src="assets/vendor/jquery/jquery-3.7.1.min.js"></script>
 	<!--===============================================================================================-->
 		<script src="assets/vendor/animsition/js/animsition.min.js"></script>
 	<!--===============================================================================================-->
