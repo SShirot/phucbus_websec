@@ -17,10 +17,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta
-        http-equiv="Content-Security-Policy"
-        content="default-src 'self'; child-src 'none';" />
-
     <title>PhucBus</title>
     <link rel="icon" type="image/png" href="assets/images/icons/favicon.ico"/>
     <!-- Google font -->
@@ -35,8 +31,8 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<%--    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>--%>
+<%--    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>--%>
 
 
 </head>

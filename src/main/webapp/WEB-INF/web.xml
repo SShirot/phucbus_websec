@@ -1,22 +1,7 @@
 
 <web-app>
   <display-name>login</display-name>
-  <filter>
-    <filter-name>clickjackFilter</filter-name>
-    <filter-class>com.phucprod.filter.ClickjackFilter</filter-class>
-    <init-param>
-        <param-name>mode</param-name>
-        <param-value>SAMEORIGIN</param-value>
-    </init-param>
-</filter>
-
-  <filter-mapping>
-      <filter-name>clickjackFilter</filter-name>
-      <url-pattern>/*</url-pattern>
-  </filter-mapping>
-
   <welcome-file-list>
     <filecom-file>index.jsp</filecom-file>
-
   </welcome-file-list>
 </web-app>

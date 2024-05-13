@@ -1,6 +1,5 @@
 package com.phucprod.login;
 
-import com.phucprod.csrfutil.CSRFUtil;
 import com.phucprod.database_query.LoginAuth;
 import struct.loginauth;
 
@@ -17,21 +16,14 @@ import java.sql.ResultSet;
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private  static final long serialVersionUID = 1L;
+
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String user_email = request.getParameter("uemail");
         String user_pass = request.getParameter("pass");
-        String submittedCsrfToken = request.getParameter("csrfToken");
         HttpSession session = request.getSession();
-        String sessionCsrfToken = (String) session.getAttribute("csrfToken");
-        
         RequestDispatcher dispatcher = null;
-
-        // Validate CSRF token
-        if (sessionCsrfToken == null || !sessionCsrfToken.equals(submittedCsrfToken)) {
-            response.sendError(HttpServletResponse.SC_FORBIDDEN, "CSRF token invalid");
-            return;
-        }    
 
         try{
             LoginAuth login = new LoginAuth();
@@ -56,14 +48,5 @@ public class LoginServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        String csrfToken = CSRFUtil.generateCSRFToken();
-        session.setAttribute("csrfToken", csrfToken);
-        request.setAttribute("csrfToken", csrfToken);
-        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 }
