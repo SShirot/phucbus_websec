@@ -1,8 +1,8 @@
 // package com.phucprod.samesitefilter;
 
-// import javax.servlet.*;
-// import javax.servlet.http.*;
-// import javax.servlet.annotation.WebFilter;
+// import jakarta.servlet.*;
+// import jakarta.servlet.http.*;
+// import jakarta.servlet.annotation.WebFilter;
 
 // import java.io.IOException;
 // import java.net.http.HttpHeaders;
@@ -10,7 +10,7 @@
 
 // import org.springframework.http.HttpHeaders;
 
-// public class SameSiteCookieFilter implements javax.servlet.Filter {
+// public class SameSiteCookieFilter implements jakarta.servlet.Filter {
 
 //     @Override
 //     public void init(FilterConfig filterConfig) throws ServletException {

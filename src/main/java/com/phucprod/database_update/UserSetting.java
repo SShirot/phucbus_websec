@@ -2,7 +2,7 @@ package com.phucprod.database_update;
 
 import com.phucprod.database_query.SQLConnection;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

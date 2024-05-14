@@ -6,7 +6,7 @@
 <%@ page import="java.util.Objects" %>
 <%
   if(session.getAttribute("name")==null) {
-      response.sendRedirect("login.jsp");
+      response.sendRedirect("/login");
   }
 %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

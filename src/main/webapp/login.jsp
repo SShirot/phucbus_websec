@@ -32,8 +32,10 @@
 		<div class="limiter">
 			<div class="container-login100" style="background-image: url('assets/images/bg-01.jpg');">
 				<div class="wrap-login100">
+					<% String csrfToken = (String) session.getAttribute("csrfToken"); %>
 					<form class="login100-form validate-form" method="POST" action="login" id="login-form">
-						<input type="hidden" name="csrfToken" value="<%= request.getAttribute("csrfToken") %>">
+						
+						<input type="hidden" name="csrfToken" value="<%= csrfToken %>">
 
 						<img class="login100-form-logo" src="assets/images/logo.png" >
 

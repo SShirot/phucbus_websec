@@ -3,7 +3,7 @@ package com.phucprod.database_update;
 import com.phucprod.database_query.SQLConnection;
 import struct.route;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

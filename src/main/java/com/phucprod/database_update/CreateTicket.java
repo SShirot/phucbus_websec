@@ -3,7 +3,7 @@ package com.phucprod.database_update;
 import com.phucprod.database_query.SQLConnection;
 import struct.ticket;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 import java.sql.*;
 import java.util.UUID;
 

@@ -3,7 +3,7 @@ package com.phucprod.database_query;
 import struct.route;
 import struct.user_info;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

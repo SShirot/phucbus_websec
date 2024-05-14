@@ -2,7 +2,7 @@ package com.phucprod.database_query;
 
 import struct.route;
 
-import javax.servlet.ServletException;
+import jakarta.servlet.ServletException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
