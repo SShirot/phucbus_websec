@@ -45,11 +45,10 @@ public class LoginServlet extends HttpServlet {
                 if (!request.isSecure()) {
                     cookieValue = cookieValue.replace("Secure; ", "");
                 }
+                                
+                dispatcher = request.getRequestDispatcher("index.jsp");
                 
                 response.setHeader("Set-Cookie", cookieValue);
-
-                dispatcher = request.getRequestDispatcher("index.jsp");
-
 
             } else {
                 request.setAttribute("status", "failed");
