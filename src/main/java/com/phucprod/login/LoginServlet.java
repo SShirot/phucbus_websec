@@ -19,14 +19,11 @@ public class LoginServlet extends HttpServlet {
         String user_email = request.getParameter("uemail");
         String user_pass = request.getParameter("pass");
         
+        RequestDispatcher dispatcher = null;
+        
         String submittedCsrfToken = request.getParameter("csrfToken");
         HttpSession session = request.getSession();
-        RequestDispatcher dispatcher = null;
         String sessionCsrfToken = (String) session.getAttribute("csrfToken");
-
-        // System.out.println("Session CSRF Token: " + sessionCsrfToken);
-        // System.out.println("Submitted CSRF Token: " + submittedCsrfToken);
-
 
         // Validate CSRF token
         if (sessionCsrfToken == null || !sessionCsrfToken.equals(submittedCsrfToken)) {
