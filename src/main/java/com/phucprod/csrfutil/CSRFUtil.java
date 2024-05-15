@@ -9,6 +9,7 @@ public class CSRFUtil {
 
     public static String generateCSRFToken() {
         byte[] randomBytes = new byte[32];
+        
         secureRandom.nextBytes(randomBytes);
         return base64Encoder.encodeToString(randomBytes);
     }
