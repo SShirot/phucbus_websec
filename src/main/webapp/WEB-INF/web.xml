@@ -4,35 +4,38 @@
     xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
     version="6.0">
   <display-name>login</display-name>
-    <!-- <filter>
-      <filter-name>clickjackFilter</filter-name>
-      <filter-class>com.phucprod.filter.ClickjackFilter</filter-class>
-      <init-param>
-          <param-name>mode</param-name>
-          <param-value>SAMEORIGIN</param-value>
-      </init-param>
-  </filter> -->
-<!-- 
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+
+  <filter>
+    <filter-name>ParameterFilter</filter-name>
+    <filter-class>com.phucprod.filter.ParameterFilter</filter-class>
+  </filter>
+
+  <filter>
+    <filter-name>ClickjackPreventionFilterDeny</filter-name>
+    <filter-class>com.phucprod.filter.ClickjackingPreventionFilter</filter-class>
+    <init-param>
+      <param-name>mode</param-name>
+      <param-value>DENY</param-value>
+    </init-param>
+  </filter>
+
+  <!-- <filter-mapping>
+    <filter-name>ParameterFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
   <filter-mapping>
-      <filter-name>clickjackFilter</filter-name>
-      <url-pattern>/*</url-pattern>
+    <filter-name>ClickjackPreventionFilterDeny</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping> -->
 
-  <!-- <filter>
-      <filter-name>SameSiteCookieFilter</filter-name>
-      <filter-class>com.phucprod.samesitefilter.SameSiteCookieFilter</filter-class>
-  </filter>
-  <filter-mapping>
-      <filter-name>SameSiteCookieFilter</filter-name>
-      <url-pattern>/*</url-pattern>
-  </filter-mapping> -->
   <session-config>
     <cookie-config>
       <http-only>true</http-only>
     </cookie-config>
   </session-config>
-
-  <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
 </web-app>

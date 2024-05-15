@@ -110,7 +110,7 @@
     <!--===============================================================================================-->
     <script src="assets/js/main.js"></script>
     <!--===============================================================================================-->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js" integrity="sha384-RIQuldGV8mnjGdob13cay/K1AJa+LR7VKHqSXrrB5DPGryn4pMUXRLh92Ev8KlGF" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="alert/dist/sweetalert.css">
 
     <script type="text/javascript">
