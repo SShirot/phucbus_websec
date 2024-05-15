@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
         String user_pass = request.getParameter("pass");
         
         RequestDispatcher dispatcher = null;
-        
+
         String submittedCsrfToken = request.getParameter("csrfToken");
         HttpSession session = request.getSession();
         String sessionCsrfToken = (String) session.getAttribute("csrfToken");
@@ -45,10 +45,11 @@ public class LoginServlet extends HttpServlet {
                 if (!request.isSecure()) {
                     cookieValue = cookieValue.replace("Secure; ", "");
                 }
+                
+                response.setHeader("Set-Cookie", cookieValue);
 
                 dispatcher = request.getRequestDispatcher("index.jsp");
 
-                response.setHeader("Set-Cookie", cookieValue);
 
             } else {
                 request.setAttribute("status", "failed");
