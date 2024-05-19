@@ -1,7 +1,7 @@
 package com.phucprod.login;
 
-import com.phucprod.csrfutil.CSRFUtil;
 import com.phucprod.database_query.LoginAuth;
+import com.phucprod.csrf.CSRFUtil;
 import struct.loginauth;
 
 import jakarta.servlet.*;
@@ -17,15 +17,17 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String user_email = request.getParameter("uemail");
-        String user_pass = request.getParameter("pass");
+        String user_pass = request.getParameter("   ");
         
         RequestDispatcher dispatcher = null;
 
-        String submittedCsrfToken = request.getParameter("csrfToken");
         HttpSession session = request.getSession();
+
         String sessionCsrfToken = (String) session.getAttribute("csrfToken");
 
-        // Validate CSRF token
+        String submittedCsrfToken = request.getParameter("csrfToken");
+
+        // // Validate CSRF token
         if (sessionCsrfToken == null || !sessionCsrfToken.equals(submittedCsrfToken)) {
             response.sendError(HttpServletResponse.SC_FORBIDDEN, "CSRF token invalid");
             return;
@@ -60,12 +62,13 @@ public class LoginServlet extends HttpServlet {
         }
     }
 
+    // Giải pháp đưa ra là tạo 1 CSRF Token độc quyền đi kèm theo mỗi request
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         String csrfToken = CSRFUtil.generateCSRFToken();
 
-        System.out.println(csrfToken);
         session.setAttribute("csrfToken", csrfToken);
         request.setAttribute("csrfToken", csrfToken);
         request.getRequestDispatcher("login.jsp").forward(request, response);

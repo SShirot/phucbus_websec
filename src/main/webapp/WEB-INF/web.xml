@@ -9,7 +9,7 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
-  <filter>
+  <!-- <filter>
     <filter-name>ParameterFilter</filter-name>
     <filter-class>com.phucprod.filter.ParameterFilter</filter-class>
   </filter>
@@ -21,7 +21,7 @@
       <param-name>mode</param-name>
       <param-value>DENY</param-value>
     </init-param>
-  </filter>
+  </filter> -->
 
   <!-- <filter-mapping>
     <filter-name>ParameterFilter</filter-name>
